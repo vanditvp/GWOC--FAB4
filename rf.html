@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strinja Art Gallery Feedback</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .rating-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .rating-box input[type="radio"] {
+      display: none;
+    }
+
+    .rating-box label {
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .rating-box label:hover {
+      background-color: #f00;
+    }
+
+    .rating-box input[type="radio"]:checked + label {
+      background-color: #f00;
+    }
+
+    button[type="submit"] {
+      background-color: green;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    @media only screen and (max-width: 768px) {
+        .container {
+          width: 100%;
+          margin: 20px auto;
+        }
+        footer {
+    background: #666;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+    position: fixed;
+    bottom: 0;
+}
+.footer-distributed {
+    background: #ffffff;
+    /* Change background color to white */
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+    margin-top: auto;
+    color: #000000;
+    /* Change text color to black */
+  }
+
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-center,
+  .footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  /* Footer left */
+  .footer-distributed .footer-left {
+    width: 40%;
+  }
+
+  /* The company logo */
+  .footer-distributed h3 {
+    color: #000000;
+    /* Change text color to black */
+    font: normal 36px 'Open Sans', cursive;
+    margin: 0;
+  }
+
+  .footer-distributed h3 span {
+    color: lightseagreen;
+  }
+
+  /* Footer links */
+  .footer-distributed .footer-links {
+    color: #000000;
+    /* Change text color to black */
+    margin: 20px 0 12px;
+    padding: 0;
+  }
+
+  .footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .footer-distributed .footer-company-name {
+    color: #222;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  /* Footer Center */
+  .footer-distributed .footer-center {
+    width: 35%;
+  }
+
+  .footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+  }
+
+  .footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+  }
+
+  .footer-distributed .footer-center p {
+    display: inline-block;
+    color: #000000;
+    /* Change text color to black */
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  .footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .footer-distributed .footer-center p a {
+    color: lightseagreen;
+    text-decoration: none;
+  }
+
+  .footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight: 300;
+    font-size: 20px;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-right: 5px;
+  }
+
+  .footer-distributed .footer-links .link-1:before {
+    content: none;
+  }
+
+  /* Footer Right */
+  .footer-distributed .footer-right {
+    width: 20%;
+  }
+
+  .footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .footer-distributed .footer-company-about span {
+    display: block;
+    color: #000000;
+    /* Change text color to black */
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .footer-distributed .footer-icons {
+    margin-top: 25px;
+  }
+
+  .footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: -2px;
+    margin-bottom: -3px;
+
+  }
+
+  :root {
+    --background: #2c2c2c;
+    --linkedin: #0a66c2;
+    --youtube: #e52d27;
+    --twitter: #131616;
+  }
+
+  .social-media-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .social-media-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    outline: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: grid;
+    place-items: center;
+  }
+
+  .social-media-button:hover {
+    outline-offset: 3px;
+    transition: all 0.3s;
+  }
+
+  .social-media-button img {
+    transition: all 0.3s;
+  }
+
+  .social-media-button:hover img {
+    transform: scale(1.15);
+  }
+
+  .social-media-button:hover:nth-child(1) {
+    background: radial-gradient(circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%);
+  }
+
+  
+
+  .social-media-button:hover:nth-child(2) {
+    background-color: var(--twitter);
+  }
+
+  .social-media-button:hover:nth-child(3) {
+    background-color: var(--youtube);
+  }
+
+  .social-media-button:hover:nth-child(4) {
+    background-color: var(--linkedin);
+  }
+
+  #yt {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  /* If you don't want the footer to be responsive, remove these media queries */
+  @media (max-width: 880px) {
+    .footer-distributed {
+      font: bold 14px sans-serif;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right {
+      display: block;
+      width: 100%;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .footer-distributed .footer-center i {
+      margin-left: 0;
+    }
+  }   
+  img{
+    width: 30;
+    height: 30;
+  } 
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1><u>Strinja Art Gallery Feedback</u></h1>
+    <form id="feedbackForm">
+      <label for="question1">1.How would you rate the variety of art displayed?</label>
+      <div class="rating-box">
+        <input type="radio" id="rating1-1" name="question1" value="1">
+        <label for="rating1-1">1</label>
+        <input type="radio" id="rating1-2" name="question1" value="2">
+        <label for="rating1-2">2</label>
+        <input type="radio" id="rating1-3" name="question1" value="3">
+        <label for="rating1-3">3</label>
+        <input type="radio" id="rating1-4" name="question1" value="4">
+        <label for="rating1-4">4</label>
+        <input type="radio" id="rating1-5" name="question1" value="5">
+        <label for="rating1-5">5</label>
+        <input type="radio" id="rating1-6" name="question1" value="6">
+        <label for="rating1-6">6</label>
+        <input type="radio" id="rating1-7" name="question1" value="7">
+        <label for="rating1-7">7</label>
+        <input type="radio" id="rating1-8" name="question1" value="8">
+        <label for="rating1-8">8</label>
+        <input type="radio" id="rating1-9" name="question1" value="9">
+        <label for="rating1-9">9</label>
+        <input type="radio" id="rating1-10" name="question1" value="10">
+        <label for="rating1-10">10</label>
+      </div>
+      <label for="question2">2.How would you rate the overall ambiance and atmosphere of the gallery during your visit?</label>
+      <div class="rating-box">
+        <input type="radio" id="rating2-1" name="question2" value="1">
+        <label for="rating2-1">1</label>
+        <input type="radio" id="rating2-2" name="question2" value="2">
+        <label for="rating2-2">2</label>
+        <input type="radio" id="rating2-3" name="question2" value="3">
+        <label for="rating2-3">3</label>
+        <input type="radio" id="rating2-4" name="question2" value="4">
+        <label for="rating2-4">4</label>
+        <input type="radio" id="rating2-5" name="question2" value="5">
+        <label for="rating2-5">5</label>
+        <input type="radio" id="rating2-6" name="question2" value="6">
+        <label for="rating2-6">6</label>
+        <input type="radio" id="rating2-7" name="question2" value="7">
+        <label for="rating2-7">7</label>
+        <input type="radio" id="rating2-8" name="question2" value="8">
+        <label for="rating2-8">8</label>
+        <input type="radio" id="rating2-9" name="question2" value="9">
+        <label for="rating2-9">9</label>
+        <input type="radio" id="rating2-10" name="question2" value="10">
+        <label for="rating2-10">10</label>
+      </div>
+      <label for="question3">3.How satisfied were you with the pricing and affordability of any artworks available for purchase?</label>
+      <div class="rating-box">
+        <input type="radio" id="rating3-1" name="question3" value="1">
+        <label for="rating3-1">1</label>
+        <input type="radio" id="rating3-2" name="question3" value="2">
+        <label for="rating3-2">2</label>
+        <input type="radio" id="rating3-3" name="question3" value="3">
+        <label for="rating3-3">3</label>
+        <input type="radio" id="rating3-4" name="question3" value="4">
+        <label for="rating3-4">4</label>
+        <input type="radio" id="rating3-5" name="question3" value="5">
+        <label for="rating3-5">5</label>
+        <input type="radio" id="rating3-6" name="question3" value="6">
+        <label for="rating3-6">6</label>
+        <input type="radio" id="rating3-7" name="question3" value="7">
+        <label for="rating3-7">7</label>
+        <input type="radio" id="rating3-8" name="question3" value="8">
+        <label for="rating3-8">8</label>
+        <input type="radio" id="rating3-9" name="question3" value="9">
+        <label for="rating3-9">9</label>
+        <input type="radio" id="rating3-10" name="question3" value="10">
+        <label for="rating3-10">10</label>
+      </div>
+      <label for="question4">4.How satisfied were you with the cleanliness of the gallery's exterior, including outdoor spaces or courtyards?</label>
+      <div class="rating-box">
+        <input type="radio" id="rating4-1" name="question4" value="1">
+        <label for="rating4-1">1</label>
+        <input type="radio" id="rating4-2" name="question4" value="2">
+        <label for="rating4-2">2</label>
+        <input type="radio" id="rating4-3" name="question4" value="3">
+        <label for="rating4-3">3</label>
+        <input type="radio" id="rating4-4" name="question4" value="4">
+        <label for="rating4-4">4</label>
+        <input type="radio" id="rating4-5" name="question4" value="5">
+        <label for="rating4-5">5</label>
+        <input type="radio" id="rating4-6" name="question4" value="6">
+        <label for="rating4-6">6</label>
+        <input type="radio" id="rating4-7" name="question4" value="7">
+        <label for="rating4-7">7</label>
+        <input type="radio" id="rating4-8" name="question4" value="8">
+        <label for="rating4-8">8</label>
+        <input type="radio" id="rating4-9" name="question4" value="9">
+        <label for="rating4-9">9</label>
+        <input type="radio" id="rating4-10" name="question4" value="10">
+        <label for="rating4-10">10</label>
+      </div>
+      <label for="question5">5.How likely are you to recommend our art gallery to friends or family?</label>
+      <div class="rating-box">
+        <input type="radio" id="rating5-1" name="question5" value="1">
+        <label for="rating5-1">1</label>
+        <input type="radio" id="rating5-2" name="question5" value="2">
+        <label for="rating5-2">2</label>
+        <input type="radio" id="rating5-3" name="question5" value="3">
+        <label for="rating5-3">3</label>
+        <input type="radio" id="rating5-4" name="question5" value="4">
+        <label for="rating5-4">4</label>
+        <input type="radio" id="rating5-5" name="question5" value="5">
+        <label for="rating5-5">5</label>
+        <input type="radio" id="rating5-6" name="question5" value="6">
+        <label for="rating5-6">6</label>
+        <input type="radio" id="rating5-7" name="question5" value="7">
+        <label for="rating5-7">7</label>
+        <input type="radio" id="rating5-8" name="question5" value="8">
+        <label for="rating5-8">8</label>
+        <input type="radio" id="rating5-9" name="question5" value="9">
+        <label for="rating5-9">9</label>
+        <input type="radio" id="rating5-10" name="question5" value="10">
+        <label for="rating5-10">10</label>
+      </div>
+     
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+ 
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      
+      // Collect form data
+      var formData = {
+        question1: document.querySelector('input[name="question1"]:checked').value,
+        question2: document.querySelector('input[name="question2"]:checked').value,
+        question3: document.querySelector('input[name="question3"]:checked').value,
+        question4: document.querySelector('input[name="question4"]:checked').value,
+        question5: document.querySelector('input[name="question5"]:checked').value,
+      };
+  
+      // Display the filled-out form in an alert
+      alert('Thank you for your valuable feedback!!\n\n' +
+        'Question 1 rating: ' + formData.question1 +'/10'+ '\n' +
+        'Question 2 rating: ' + formData.question2 +'/10'+'\n' +
+        'Question 3 rating: ' + formData.question3 +'/10'+ '\n' +
+        'Question 4 rating: ' + formData.question4 +'/10'+'\n' +
+        'Question 5 rating: ' + formData.question5+'/10');
+  
+      // Reset the form
+      document.getElementById("feedbackForm").reset();
+  
+      // Additional actions after submission
+      document.getElementById("submitBtn").style.display = "none";
+      document.getElementById("thanksMessage").style.display = "block";
+    });
+  </script>
+  
+</body>
+</html>
+</body>
+</html>

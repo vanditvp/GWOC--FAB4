@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script>
+        function removePhoto(productId) {
+            fetch(`http://localhost:3000/deleteProduct/${productId}`, { method: 'DELETE' })
+                .then(response => {
+                    if (response.ok) {
+                        var productElement = document.getElementById(productId);
+                        if (productElement) {
+                            productElement.remove();
+                        }
+                    } else {
+                        console.error('Error deleting product:', response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting product:', error);
+                });
+        }
+
+        function loadProducts() {
+            // Fetch products from the server
+            fetch('http://localhost:3000/products')
+                .then(response => response.json())
+                .then(products => {
+                    // Create product elements dynamically
+                    const productContainer = document.querySelector('.pro-container');
+                    products.forEach(product => {
+                        const productElement = document.createElement('div');
+                        productElement.className = 'pro';
+                        productElement.id = product.id; // Use product ID as the element ID
+
+                        productElement.innerHTML = `
+                            <img src="${product.image}">
+                            <div class="des">
+                                <span>${product.brand}</span>
+                                <h5>${product.name}</h5>
+                                <div class="star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>Rs. ${product.price}</h4>
+                            </div>
+                            <a href="#" onclick="event.stopPropagation(); removePhoto('${product.id}')"><i class="fas fa-times cart"  ></i></a>
+                        `;
+
+                        productElement.addEventListener('click', () => {
+                            window.location.href = `product.html?id=${product.id}`;
+                        });
+
+                        productContainer.appendChild(productElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading products:', error);
+                });
+        }
+        
+
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+    <style>/* Add this style to center the "Add New Product" link */
+        .rf {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        a[href="addProductForm.html"] {
+          display: inline-block;
+          font-size: 20px;
+          background-color: yellowgreen;
+          margin-top: 20px; /* Adjust as needed */
+          padding: 10px 20px;
+          text-decoration: none;
+          color: #fff;
+          border-radius: 5px;
+        }
+        
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 600px) {
+          a[href="addProductForm.html"] {
+            font-size: 16px;
+          }
+        }
+        .right-container {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: flex-end;
+      width: 80%;
+    }
+
+    .right-container .right-container-child {
+      color: #fff;
+      display: flex;
+      justify-content: end;
+      width: 100%;
+    }
+
+    .right-container .right-container-hamburger {
+      display: none;
+    }
+
+    .right-container .right-container-child .nav-item-active {
+      color: #fff;
+      color: #65ffa3;
+      text-decoration: none;
+      transition: 1s;
+    }
+
+    .nav-item:hover {
+      color: #65ffa3 !important;
+      box-shadow: 0 0 5px #65ffa3;
+    }
+
+    .right-container .right-container-child .nav-item-active {
+      align-items: center;
+      box-shadow: 0 0 5px #65ffa3;
+      cursor: pointer;
+      display: flex;
+      font-size: 16px;
+      font-weight: 500;
+      justify-content: center;
+      margin-right: 30px;
+      overflow: hidden;
+      padding: 7.5px 15px;
+      position: relative;
+      transition: 0.2s;
+      z-index: 10;
+    }
+
+    .right-container .right-container-child .nav-item {
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      font-size: 16px;
+      font-weight: 500;
+      justify-content: center;
+      margin-right: 30px;
+      overflow: hidden;
+      padding: 7.5px 15px;
+      position: relative;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .right-container .right-container-child .nav-item-active span:first-child {
+      position: absolute;
+      animation: animate1 2s linear infinite;
+      animation-delay: 0.2s;
+      background: linear-gradient(90deg, transparent, #65ffa3);
+      height: 2px;
+      left: -100%;
+      top: 0;
+      width: 100%;
+    }
+
+    @keyframes animate1 {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+
+    .right-container .right-container-child .nav-item-active span:nth-child(2) {
+      position: absolute;
+      animation: animate2 2s linear infinite;
+      -webkit-animation-delay: 0.7s;
+      animation-delay: 0.7s;
+      background: linear-gradient(180deg, transparent, #65ffa3);
+      height: 100%;
+      right: 0;
+      top: 100%;
+
+      width: 2px;
+    }
+
+    @keyframes animate2 {
+      0% {
+        top: -100%;
+      }
+
+      50%,
+      100% {
+        top: 100%;
+      }
+    }
+
+    .right-container .right-container-child .nav-item-active span:nth-child(3) {
+      position: absolute;
+      animation: animate3 2s linear infinite;
+      -webkit-animation-delay: 1.2s;
+      animation-delay: 1.2s;
+      background: linear-gradient(270deg, transparent, #65ffa3);
+      bottom: 0;
+      height: 2px;
+      right: 100%;
+      width: 100%;
+    }
+
+    @keyframes animate3 {
+      0% {
+        right: -100%;
+      }
+
+      50%,
+      100% {
+        right: 100%;
+      }
+    }
+
+    .right-container .right-container-child .nav-item-active span:nth-child(4) {
+      animation: animate4 2s linear infinite;
+      -webkit-animation-delay: 1.7s;
+      animation-delay: 1.7s;
+      background: linear-gradient(1turn, transparent, #65ffa3);
+      bottom: 100%;
+      position: absolute;
+      height: 100%;
+      left: 0;
+      width: 2px;
+    }
+
+    @keyframes animate4 {
+      0% {
+        bottom: -100%;
+      }
+
+      50%,
+      100% {
+        bottom: 100%;
+      }
+    }
+
+    #logo {
+      height: 70px;
+      width: 70px;
+      border-radius: 75%;
+    }
+
+    #navi {
+      color: white;
+      height: 80px;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 99vw;
+      z-index: 10;
+    }
+
+    #v1 {
+      font-size: 40px;
+      font-weight: 600;
+    }
+    #v1 {
+      color: white !important;
+    }
+
+        </style>
+</head>
+
+<body id="content">
+    <nav id="navi" class="navbar navbar-expand-lg" style="position: sticky;" >
+        <div class="container-fluid">
+          <img id="logo" class="mx-4" src="logo1.jpg" alt="" />
+          <a class="navbar-brand" href="#" id="v1">Strinja</a>
+          <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+            <div class="right-container">
+              <div class="right-container-child">
+                <a class="nav-item" style="color: turquoise;" href="mainpage.html">
+                  <span></span><span></span><span></span><span></span>Home
+                </a>
+                <a class="nav-item-active" href="gallery.html" style="color: turquoise;" ><span></span><span></span><span></span><span></span>Gallery</a><a
+                  class="nav-item" href="aboutus.html" style="color: turquoise;"><span></span><span></span><span></span><span></span>About Us</a><a
+                  class="nav-item" href="contactus.html" style="color: turquoise;"><span></span><span></span><span></span><span></span>Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </nav>
+     <section class="rf">
+        <a href="addProductForm.html" target="_blank" style="font-size: 20px; background-color: yellowgreen; margin-top: 12%;" >Add New Product</a>
+        </section>
+    <section id="product1" class="rf" class="section-p1">
+        <div class="pro-container">
+            <!-- Dynamically loaded products will be inserted here -->
+        </div>
+    </section>
+
+    <div class="footer-distributed">
+
+        <div class="footer-content">
+          <div class="footer-left">
+            <img src="logo1.jpg" alt="" style="height: 103px; width: 110px;">
+            <p class="footer-links">
+              <a href="mainpage.html" class="link-1">Home</a>
+              <a href="aboutus.html">About</a>
+              <a href="gallery.html">Gallery</a>
+              <a href="contactus.html">Contact Us</a>
+            </p>
+            <p class="footer-company-name">Strinja © 2023</p>
+          </div>
+      
+          <div class="footer-center">
+            <div>
+              <i class="fa fa-map-marker"></i>
+              <p><span>Bhabha Bhavan, SVNIT,</span>Surat, Gujarat, 395007</p>
+            </div>
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+1.555.555.5555</p>
+            </div>
+            <div>
+              <i class="fa fa-envelope"></i>
+              <p><a href="mailto:support@company.com">support@company.com</a></p>
+            </div>
+          </div>
+      
+          <div class="footer-right">
+            <p class="footer-company-about">
+              <span>About the company</span>
+              Strinja crafts personalized string arts, blending tradition with innovation. Empowering women, delivering
+              artistry globally. Your memories, our creations, handcrafted.
+            </p>
+            <div class="footer-icons">
+              <span class="social-media-buttons">
+                <span class="social-media-button">
+                  <a href="https://www.instagram.com/strinja.shop/" target="_blank"><img style="border-radius: 10px;" alt=""
+                      src="insta.jpg" /></a>
+                </span>
+                <span class="social-media-button">
+                  <a href="" target="_blank">
+      
+                    <img alt="Twitter" src="x.jpg" id="x" />
+                  </a>
+                </span>
+                <span class="social-media-button">
+                  <a href="" target="_blank" style="margin-top: -19px; margin-left: -16px;">
+      
+                    <img alt="Youtube" src="yt.jpg" id="yt" />
+                  </a>
+                </span>
+                <span class="social-media-button">
+                  <a href="" target="_blank">
+                    <img alt="LinkedIn" src="in.jpg" />
+      
+                  </a>
+      
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script> jQuery('#waterdrop').raindrops({color:'#1c1f2f', canvasHeight:150, density: 0.1, frequency: 20}); </script>
+    <script src="gallery.js"></script> 
+</body>
+
+</html>

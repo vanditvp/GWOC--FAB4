@@ -1,0 +1,290 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>sdsaf}</title>
+            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+            <link rel="stylesheet" href="gallery.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        </head>
+        <body>
+        <section id="header">    
+<a href="mainpage.html"  ><img src="strinjaicon1.png" height="50px" width="80px" ></a>
+<div>
+<ul id="navbar">
+<li><a href="mainpage.html">Home</a></li>
+<li><a href="gallery.html" class="active">Shop</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href=""><i class="far fa-shopping-cart"></i></a></li>
+</ul>
+<div id="mobile">
+    <a href=""><i class="far fa-shopping-cart"></i></a>    
+    <i id="bar" class="fas fa-outdent"></i>
+</div>
+</div>
+</section>
+            <section id="prodetails" class="section-p1">
+            <div id="images">
+            <div class="single-pro-image">
+               <img src="sdsaf" width="100%" id="MainImg">
+            </div>
+            <div class="small-img-group">
+               <div class="small-img-col">
+                   <img src="sdsaf" width="100%" class="small-img">
+               </div>
+               <div class="small-img-col">
+                   <img src="s2.jpg" width="100%" class="small-img">
+               </div>
+               <div class="small-img-col">
+                   <img src="s3.jpg" width="100%" class="small-img">
+               </div>
+               <div class="small-img-col">
+                   <img src="s1.jpg" width="100%" class="small-img">
+               </div>
+            </div>
+           </div>           
+                <div class="single-pro-details">
+                    <h4>dsgds</h4>
+                    <h2>24</h2>
+                    <input type="number" value="1" min="1" id="q">  
+                    <button onclick="event.preventDefault(); openWhatsApp('dsgds', '24')">Buy</button>
+                    <h4>Product Details </h4>
+                    <span>3235r32</span>
+                </div>   
+            </section>
+            <section id="product1" class="section-p1">
+    <h2>Featured Products</h2>
+    <div class="pro-container">
+        
+        <div class="pro" onclick="window.location.href='sproduct13.html';">
+            <img src="sproduct13.jpg">
+            <div class="des">
+                <span>Strinja</span>
+                <h5>The Puppy</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>Rs. 6500</h4>
+            </div>
+            <a href="#" onclick="event.preventDefault(); openWhatsAppDialog('The Puppy', 'Rs. 6500')"><i class="fa fa-whatsapp cart"></i></a>
+        </div>
+        <div class="pro" onclick="window.location.href='sproduct14.html';">
+            <img src="sproduct14.jpg">
+            <div class="des">
+                <span>Strinja</span>
+                <h5>Sudarshana</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>Rs. 7400</h4>
+            </div>
+            <a href="#" onclick="event.preventDefault(); openWhatsAppDialog('Sudarshana', 'Rs. 7400')"><i class="fa fa-whatsapp cart"></i></a>
+        </div>
+        <div class="pro" onclick="window.location.href='sproduct15.html';">
+            <img src="sproduct15.jpg">
+            <div class="des">
+                <span>Strinja</span>
+                <h5>The Dog</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>Rs. 3240</h4>
+            </div>
+            <a href="#" onclick="event.preventDefault(); openWhatsAppDialog('The Dog', 'Rs. 3240')"><i class="fa fa-whatsapp cart"></i></a>
+        </div>
+        <div class="pro" onclick="window.location.href='sproduct16.html';">
+            <img src="sproduct16.jpg">
+            <div class="des">
+                <span>Strinja</span>
+                <h5>3d-effect</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>Rs. 4567</h4>
+            </div>
+            <a href="#" onclick="event.preventDefault(); openWhatsAppDialog('3d-effect', 'Rs. 4567')"><i class="fa fa-whatsapp cart"></i></a>
+        </div>
+    </div>
+    </section>
+    <script>
+    var MainImg = document.getElementById("MainImg");
+var smallimg = document.querySelectorAll(".small-img");
+smallimg[0].onclick=function(){
+        MainImg.src = smallimg[0].src;
+    }
+    smallimg[1].onclick=function(){
+        MainImg.src = smallimg[1].src;
+    }
+    smallimg[2].onclick=function(){
+        MainImg.src = smallimg[2].src;
+    }
+    smallimg[3].onclick=function(){
+        MainImg.src = smallimg[3].src;
+    }
+    </script>
+     <div class="page-wrapper">
+        <div id="waterdrop"></div>
+        <footer>
+          <div class="footer-top">
+            <div class="pt-exebar">
+    
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 footer-col-3">
+                  <div class="widget footer_widget">
+                    <h5 class="footer-title">Address</h5>
+                    <div class="gem-contacts">
+                      <div class="gem-contacts-item gem-contacts-address">Corporate Office :<br> Doon House, B-275(A), First floor
+                        Sector-57, Shushant Lok 3
+                        Near Hong Kong Bazzar, Gurugram Pin 122001, Haryana.
+                      </div>
+                      <div class="gem-contacts-item gem-contacts-phone"><i class="fa fa-phone" aria-hidden="true"></i> Phone: <a href="">+91-8340605194</a></div>
+    
+                      <div class="gem-contacts-item gem-contacts-address mt-2">Reg. Office :<br> Doon House, D2/3,
+                        4th Floor, Chandra Tower, IDBI Bank Building
+                        Dimna Road, Mango, Jamshedpur-831012, Jharkhand.</div>
+                      <div class="gem-contacts-item gem-contacts-phone"><i class="fa fa-phone" aria-hidden="true"></i> Phone: <a>+91-8340605194</a></div>
+    
+                    </div>
+                  </div>
+    
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                  <div class="row">
+                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                      <div class="widget footer_widget">
+                        <h5 class="footer-title">Recent News</h5>
+                        <ul class="posts  styled">
+                          <li class="clearfix gem-pp-posts">
+                            <div class="gem-pp-posts-text">
+                              <div class="gem-pp-posts-item">
+                                <a href="#">New Items Arrived.
+                                </a>
+                              </div>
+                              <div class="gem-pp-posts-date">Call +91-8340605194</div>
+                            </div>
+                          </li>
+                          <li class="clearfix gem-pp-posts">
+                            <div class="gem-pp-posts-text">
+                              <div class="gem-pp-posts-item">
+                                <a href="#">Extra Discount This Month.
+                                </a>
+                              </div>
+                              <div class="gem-pp-posts-date">Call +91-8340605194, +91-8340605194</div>
+                            </div>
+                          </li>
+                          <li class="clearfix gem-pp-posts">
+                            <div class="gem-pp-posts-text">
+                              <div class="gem-pp-posts-item">
+                                <a href="">70% off This Diwali.
+                                </a>
+                              </div>
+                              <div class="gem-pp-posts-date">Call +91-8340605194, +91-8340605194</div>
+                            </div>
+                          </li>
+    
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                      <div class="widget">
+                        <h5 class="footer-title">Email Us</h5>
+                        <div class="textwidget">
+                          <div role="form" class="wpcf7" id="wpcf7-f4-o1" lang="en-US" dir="ltr">
+    
+                            <form method="post" class="wpcf7-form" novalidate="novalidate">
+    
+                              <div class="contact-form-footer">
+                                <p><span class="wpcf7-form-control-wrap your-first-name"><input type="text" name="your-first-name" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Your name "  style="width: 70%; margin-left: 15%;  text-align: center; "></span></p>
+                                <p><span class="wpcf7-form-control-wrap your-email_1"><input type="email" name="your-email_1" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email" aria-invalid="false" placeholder="Your email" style="width: 70%; margin-left: 15%;text-align: center; "></span></p>
+                                <p><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Your message" style="width: 70%; margin-left: 15%;text-align: center; "></textarea></span></p>
+                                <div><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span></div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+    
+                <div class="col-md-3">
+                  <div class="footer-site-info">2023 © <a href="https://www.youtube.com/watch?v=pdr4IzBpacI&t=34s" target="_blank">Strinja</a></div>
+                </div>
+    
+                <div class="col-md-6">
+                  <nav id="footer-navigation" class="site-navigation footer-navigation centered-box" role="navigation">
+                    <ul id="footer-menu" class="nav-menu styled clearfix inline-inside">
+                      <li id="menu-item-26" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26"><a href="#">Support</a></li>
+                      <li id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27"><a href="#">Contact Us</a></li>
+                      <li id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28"><a href="#">Disclaimer</a></li>
+                    </ul>
+                  </nav>
+                </div>
+    
+                <div class="col-md-3">
+                  <div id="footer-socials">
+                    <div class="socials inline-inside socials-colored">
+    
+                      <a href="#" target="_blank" title="Facebook" class="socials-item">
+                        <i class="fab fa-facebook-f facebook"></i>
+                      </a>
+                      <a href="#" target="_blank" title="Twitter" class="socials-item">
+                        <i class="fab fa-twitter twitter"></i>
+    
+                      </a>
+                      <a href="#" target="_blank" title="Instagram" class="socials-item">
+                        <i class="fab fa-instagram instagram"></i>
+                      </a>
+                      <a href="#" target="_blank" title="YouTube" class="socials-item">
+                        <i class="fab fa-youtube youtube"></i>
+                      </a>
+                      <a href="#" target="_blank" title="Telegram" class="socials-item">
+                        <i class="fab fa-telegram telegram"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+    
+     <script> jQuery('#waterdrop').raindrops({color:'#1c1f2f', canvasHeight:150, density: 0.1, frequency: 20});
+    </script>
+    <script src="sproduct.js"></script> 
+</body>
+</html>
+    
