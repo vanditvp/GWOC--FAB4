@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="gallery.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-
+  <link rel="icon" href="logo1.jpg" type="image/x-icon">
     <script>
         function removePhoto(productId) {
             // Send a DELETE request to the server
-            fetch(`http://localhost:3000/deleteProduct/${productId}`, { method: 'DELETE' })
+            fetch(http://localhost:3000/deleteProduct/${productId}, { method: 'DELETE' })
                 .then(response => {
                     if (response.ok) {
                         // If the deletion is successful, remove the product element from the UI
@@ -63,7 +63,7 @@
                         `;
 
                         productElement.addEventListener('click', () => {
-                            window.location.href = `product.html?id=${product.id}`;
+                            window.location.href = product.html?id=${product.id};
                         });
 
                         productContainer.appendChild(productElement);
@@ -85,11 +85,30 @@
         margin: 0;
         font-family: Arial, sans-serif;
     }
+    .pro {
+      background-color: #738179;
+      border: 1px solid #ccc; /* add border for better visibility */
+      padding: 15px;
+      margin: 10px;
+      border-radius: 10px; /* add border-radius for rounded corners */
+  }
 
+  /* Add this style to give green color to the background */
+  body1 {
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+  }
+      
     a[href="login form.html"] {
         display: inline-block;
         font-size: 20px;
-        background-color: yellowgreen;
+        background-color: green;
         padding: 10px 20px;
         text-decoration: none;
         color: #fff;
@@ -283,6 +302,7 @@
     }
 
 </style>
+
 </head>
 
 <body>
